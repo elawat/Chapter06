@@ -19,7 +19,7 @@ namespace Ch06_PeopleApp
             // curly brackets for initializing
             var p2 = new Person { Name = "Mis Puchatek", DateOfBirth = new DateTime(1975, 12, 24) };
             WriteLine($"{p2.Name} was born on {p2.DateOfBirth: dddd, d MMMM yyyy}");
-
+            //
         }
     }
 }
