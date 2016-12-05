@@ -12,6 +12,12 @@ namespace Packt.CS6
         // fields
         public string Name; // if private only accessible withing the class
         public DateTime DateOfBirth;
+        public WondersOfTheAncientWorld FavouriteAncientWonder; // enum
+        public WondersOfTheAncientWorld BucketList;
+        public List<Person> Children = new List<Person>(); // aggregation, collections of Person
+        // constants
+        public const string Species = "Homo Sapies";
+
 
     }
 }
