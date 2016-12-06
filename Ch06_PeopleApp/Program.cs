@@ -40,6 +40,14 @@ namespace Ch06_PeopleApp
             WriteLine($"{ba2.AccountName} earned {ba2.Balance * BankAccount.InterestRate}.");
 
             WriteLine($"{p1.Name} is a {Person.Species}.");
+
+            WriteLine($"{p1.Name} was born on {p1.HomePlanet}.");
+
+            var p3 = new Person();
+            WriteLine($"{p3.Name} was instantiated at {p3.Instantiated:hh:mm:ss} on {p3.Instantiated:dddd, d MMMM yyyy}.");
+
+            var p4 = new Person("Dawid");
+            WriteLine($"{p4.Name} was instantiated at {p4.Instantiated:hh:mm:ss} on {p4.Instantiated:dddd, d MMMM yyyy}.");
         }
     }
 }
