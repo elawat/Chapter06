@@ -48,6 +48,26 @@ namespace Ch06_PeopleApp
 
             var p4 = new Person("Dawid");
             WriteLine($"{p4.Name} was instantiated at {p4.Instantiated:hh:mm:ss} on {p4.Instantiated:dddd, d MMMM yyyy}.");
+
+            p1.WriteToConsole();
+            WriteLine(p1.GetOrigin());
+
+            WriteLine(p1.SayHello());
+            WriteLine(p1.SayHello("Ela"));
+
+            p1.OptionalParameters("Jump!",15);
+            p1.OptionalParameters("Jump!", active: false);
+
+            var max = new Person { Name = "Max", DateOfBirth = new DateTime(1986, 8, 17) };
+            WriteLine(max.Origin);
+            WriteLine(max.Greeting);
+            WriteLine(max.Age);
+
+            max.FavouriteIceCream = "Chocolate Fundge";
+            WriteLine($"Max's favourite ice cream flavour is {max.FavouriteIceCream}");
+            max.FavouritePrimaryColour = "Red";
+            WriteLine($"Max's favourite primary colour is {max.FavouritePrimaryColour}");
+
         }
     }
 }

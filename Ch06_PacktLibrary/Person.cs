@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace Packt.CS6
 {
-    public class Person 
+    public partial class Person  // partial allows split the code for class over multiple files
         // if not public will be accessible only withing the assembly that defined it
     {
         // fields
@@ -34,7 +35,30 @@ namespace Packt.CS6
             Name = initialName;
             Instantiated = DateTime.Now;
         }
+        // methods
+        public void WriteToConsole()
+        {
+            WriteLine($"{Name} was born on {DateOfBirth: dddd, d MMMM yyyy}");
+        }
+        public string GetOrigin()
+        {
+            return $"{Name} was born on {HomePlanet}";
+        }
 
+        public string SayHello()
+        {
+            return $"{Name} says 'Hello!'";
+        }
+
+        public string SayHello(string name)
+        {
+            return $"{Name} says 'Hello {name}!'";
+        }
+
+        public void OptionalParameters(string command = "Run", double number = 0.0, bool active = true)
+        {
+            WriteLine($"command is {command}, number is {number}, active is {active}");
+        }
 
     }
 }
