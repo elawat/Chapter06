@@ -47,6 +47,41 @@ namespace Packt.CS6
             }
         }
 
+        // indexers 
+        public Person this[int index]
+        {
+            get
+            {
+                return Children[index];
+            }
+            set
+            {
+                Children[index] = value;
+            }
+        }
 
+        //method to "multiply"
+        public Person Procreate(Person partner)
+        {
+            var baby = new Person("Baby");
+            Children.Add(baby);
+            partner.Children.Add(baby);
+            return baby;
+        }
+
+        // operator to "multiply"
+        public static Person operator * (Person p1, Person p2)
+        {
+            return p1.Procreate(p2);
+        }
+
+        // Calling methods using delegates
+        public int MethodIWantToCall(string input)
+        {
+            return input.Length;
+        }
+
+        //defining delegate ????
+        delegate int DelegateWithMatchingSignature(string s);
     }
 }

@@ -68,6 +68,31 @@ namespace Ch06_PeopleApp
             max.FavouritePrimaryColour = "Red";
             WriteLine($"Max's favourite primary colour is {max.FavouritePrimaryColour}");
 
+            max.Children.Add(new Person { Name = "Charlie" });
+            max.Children.Add(new Person { Name = "Ella" });
+            WriteLine($"Max's first child is {max.Children[0].Name}");
+            WriteLine($"Max's second child is {max.Children[1].Name}");
+            WriteLine($"Max's first child is {max[0].Name}"); // uses indexers
+            WriteLine($"Max's secod child is {max[1].Name}");
+
+            WriteLine();
+
+            var harry = new Person("Harry"); // creating a new instance of Person with field Name = "Harry"
+            var mary = new Person { Name = "Mary" }; // creating a new instance of Person with field Name = "Mary"
+            var baby1 = harry.Procreate(mary);
+            // with the use of operator
+            var baby2 = mary * harry;
+            WriteLine($"{harry.Name} has {mary.Children.Count} children.");
+            WriteLine($"{mary.Name} has {mary.Children.Count} children.");
+            WriteLine($"{baby1.Name}");
+
+            // Calling methid directly
+            int answer = p1.MethodIWantToCall("Frod");
+            // Create instance of delegate, point it at the method, and call the delegate (which calls the method)
+            //?????
+            var d = new DelegateWithMatchingSignature(p1.MethodIWantToCall);
+            int answer2 = d("Frod");
+            
         }
     }
 }
