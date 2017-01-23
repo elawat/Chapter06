@@ -90,9 +90,21 @@ namespace Ch06_PeopleApp
             int answer = p1.MethodIWantToCall("Frod");
             // Create instance of delegate, point it at the method, and call the delegate (which calls the method)
             //?????
-            var d = new DelegateWithMatchingSignature(p1.MethodIWantToCall);
-            int answer2 = d("Frod");
-            
+            //var d = new DelegateWithMatchingSignature(p1.MethodIWantToCall);
+            //int answer2 = d("Frod");
+
+            p1.Shout += P1_Shout; // tab + enter to insert method taht matches teh signature of the event delegate 
+            p1.Poke();
+            p1.Poke();
+            p1.Poke();
+            p1.Poke();
+            p1.Poke();
+        }
+
+        private static void P1_Shout(object sender, EventArgs e)
+        {
+            Person p = (Person)sender;
+            WriteLine($"{p.Name} is this angry: { p.AngerLevel}.");
         }
     }
 }

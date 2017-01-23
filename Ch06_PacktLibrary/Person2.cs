@@ -83,5 +83,21 @@ namespace Packt.CS6
 
         //defining delegate ????
         delegate int DelegateWithMatchingSignature(string s);
+
+        // events
+        public event EventHandler Shout;
+        public int AngerLevel;
+        public void Poke()
+        {
+            AngerLevel++;
+            if (AngerLevel >= 3)
+            {
+                if (Shout != null) // event delegate is pointing at a method - i.e. is not null
+                {
+                    Shout(this, EventArgs.Empty);
+                }
+
+            }
+        }
     }
 }
