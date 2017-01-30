@@ -10,19 +10,32 @@ namespace Ch06_Excercise02
     class Program
     {
         static int number;
+        static string func;
 
         static void Main(string[] args)
         {
+            WriteLine("Press A key for cardinal to ordinal conversion, B - for factorial function; C - for prime factorization.");
+            func = ReadLine();
+
             WriteLine("Input a cardinal number");
             number = int.Parse(ReadLine());
 
-            string ordinal = CardinalToOrdinal(number);
-
-            WriteLine(ordinal);
-
-            WriteLine(FactorialLoop(number));
-            WriteLine(FactorialRecursion(number));
-            WriteLine(PrimeFactors(number));
+            switch (func)
+            {
+                case "a":
+                case "A":
+                    WriteLine(CardinalToOrdinal(number));
+                    break;
+                case "b":
+                case "B":
+                    WriteLine(FactorialRecursion(number));
+                    break;
+                case "c":
+                case "C":
+                    WriteLine(PrimeFactors(number));
+                    break;
+            }
+           
         }
 
         static string CardinalToOrdinal(int cardinal)
