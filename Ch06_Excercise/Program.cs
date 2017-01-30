@@ -82,31 +82,23 @@ namespace Ch06_Excercise02
         {
 
             if (n == 1) return ""; //The number 1 is called a unit. It has no prime factors and is neither prime nor composite.
-            if (isPrime(n)) return $"{n}";
-            bool isEqual = n % 2 == 0;
+            if (isPrime(n)) return $"{n}"; // Prime number have only one factor itself
 
-            int m;
             int i;
-            string factors;
+            string factors = "";
 
-           
-                i = 2;
-                m = n / i;
-                factors ="";
-                if (isEqual) factors = ""+i;
-                while (isPrime(m)==false)
-                {
-                    for (int j =2; m%i != 0; j++) //look for devider
-                    {
-                        i = j;
-                    }
-                    m = m / i;
-                    factors = factors + i + "x";
-                }
-                factors = factors + "x" + m;
-                return factors;
-         
-      
+            while (isPrime(n) == false) // Do until n is prime
+            {
+
+                for (i = 2; n % i != 0; i++) ; // Find denominator
+                n = n / i;
+                if (isPrime(i)) factors = factors + i + "x";
+            }
+            factors = factors + n;
+
+            return factors;
+
+
         }
 
         static bool isPrime(int number)
