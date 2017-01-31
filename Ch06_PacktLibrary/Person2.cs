@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Packt.CS6
 {
-    public partial class Person
+    public partial class Person : IComparable<Person>
     {
         // property - methid that act like a field when you want to get or set value
 
@@ -98,6 +98,11 @@ namespace Packt.CS6
                 }
 
             }
+        }
+
+        public int CompareTo(Person other)
+        {
+            return Name.CompareTo(other.Name);
         }
     }
 }

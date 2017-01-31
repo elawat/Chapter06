@@ -10,6 +10,8 @@ namespace Ch06_PeopleApp
 {
     class Program
     {
+        private static Array people;
+
         static void Main(string[] args)
         {
             var p1 = new Person();
@@ -17,7 +19,7 @@ namespace Ch06_PeopleApp
             p1.DateOfBirth = new DateTime(1980, 12, 24);
             p1.FavouriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
             //p1.BucketList = WondersOfTheAncientWorld.HangingGardensOfBabilon | WondersOfTheAncientWorld.MuasoleumAtHalicarnassus;
-            p1.BucketList = (WondersOfTheAncientWorld)15 ;
+            p1.BucketList = (WondersOfTheAncientWorld)15;
             WriteLine($"{p1.Name}'s bucket list is {p1.BucketList}");
             WriteLine($"{p1.Name} was born on {p1.DateOfBirth: dddd, d MMMM yyyy}");
             WriteLine($"{p1.Name}'s favourite wonder is {p1.FavouriteAncientWonder}");
@@ -28,7 +30,7 @@ namespace Ch06_PeopleApp
             p1.Children.Add(new Person());
             p1.Children.Add(new Person());
             WriteLine($"{p1.Name} has {p1.Children.Count} children");
-            
+
             BankAccount.InterestRate = 0.012M;
             var ba1 = new BankAccount();
             ba1.AccountName = "Jones";
@@ -55,7 +57,7 @@ namespace Ch06_PeopleApp
             WriteLine(p1.SayHello());
             WriteLine(p1.SayHello("Ela"));
 
-            p1.OptionalParameters("Jump!",15);
+            p1.OptionalParameters("Jump!", 15);
             p1.OptionalParameters("Jump!", active: false);
 
             var max = new Person { Name = "Max", DateOfBirth = new DateTime(1986, 8, 17) };
@@ -99,12 +101,36 @@ namespace Ch06_PeopleApp
             p1.Poke();
             p1.Poke();
             //p1.Poke();
+
+
+            Person[] people =
+       {
+            new Person {Name = "Simon" },
+            new Person {Name = "Jenny" },
+            new Person {Name = "Adam" },
+            new Person {Name = "Richard" }
+        };
+            Array.Sort(people); // uses IComparable interface method - CompareTo method
+            foreach (var person in people)
+            {
+                WriteLine($"{person.Name}");
+            }
+
+            Array.Sort(people, new PersonComparer()); // we explicitly ask the sorting algorithm to use the PersonComparer - Compare method
+            foreach (var person in people)
+            {
+                WriteLine($"{person.Name}");
+            }
+
         }
 
         private static void P1_Shout(object sender, EventArgs e)
         {
             Person p = (Person)sender;
             WriteLine($"{p.Name} is this angry: { p.AngerLevel}.");
-        } 
+        }
+
+       
+         
     }
 }
